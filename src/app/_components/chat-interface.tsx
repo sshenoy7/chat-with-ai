@@ -5,7 +5,6 @@ import Sidebar from './sidebar'
 import { Button, Drawer, message } from 'antd'
 import { useChat } from 'ai/react';
 import Messages from './messages'
-import axios from 'axios';
 import { saveNewChat, updateChat } from '@/actions/chats'
 import chatsGlobalStore from '@/store/chats-store'
 import usersGlobalStore from '@/store/users-store'
@@ -53,38 +52,6 @@ function ChatInterface() {
             setMessages([]);
         }
     }, [selectedChat]);
-
-    // const getApiResponse = async (message: string) => {
-    //     try {
-    //         const response = await axios.post(
-    //             'http://127.0.0.1:8000/api/chat', 
-    //                 {
-    //                   "user_id": "12345A",
-    //                   "session_id": "5aba3397-4356-43fc-85b6-9134f66c005f",
-    //                   "message": message
-    //                 });
-    //         const data = await response.data;
-    //         console.log(data);
-    //         const ans = data.response.messages[data.response.messages.length -1].message;
-    //         console.log(response);
-    //         //setMessages([...messages, ans]);
-    //         let messages: unknown[] = []; // Notice the initialization here!
-    //         messages = [...messages, ans];
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // };
-
-    // const handleSubmitValue = async (event: React.FormEvent<HTMLFormElement>) => {
-    //     event.preventDefault();
-    //     console.log(input);
-    //     const message = input.trim();
-    //     console.log(message);
-    //     if (message !== '') {
-    //         console.log("Sending Message: " + message);
-    //         getApiResponse(message);
-    //     }
-    // };
 
 
     return (
