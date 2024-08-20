@@ -8,7 +8,7 @@ import { message, Spin } from "antd";
 
 function CustomLayout({ children } : { children: React.ReactNode}) {
     const pathname = usePathname()
-    if (pathname.includes('/sign-in') || pathname.includes('/sign-up')) {
+    if (pathname?.includes('/sign-in') || pathname?.includes('/sign-up')) {
         return <>{children}</>
     }
 
@@ -19,6 +19,7 @@ function CustomLayout({ children } : { children: React.ReactNode}) {
         try {
             setLoading(true);
             const response = await saveAndGetLoggedInUser();
+            console.log({children});
             if (response?.success)
             {
                 setLoggedInUserData(response.data)

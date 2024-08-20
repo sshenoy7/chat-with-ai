@@ -6,7 +6,6 @@ export const maxDuration = 30;
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
-  console.log("inside....");
 
   const result = await streamText({
     model: google('models/gemini-1.5-flash-latest'),
